@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // CRITICAL: Root route - serve index.html directly
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'public.html'));
 });
 
 // Video generation endpoint
