@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Veo-like: Image to Video (Free 24/7)</h2>
+  <input type="file" id="img" accept="image/*">
+  <button onclick="generate()">Generate Video</button>
+  <video id="output" controls></video>
+  <script>
+    async function generate() {
+      const form = new FormData();
+      form.append('image', document.getElementById('img').files[0]);
+      const res = await fetch('/generate-video', {method:'POST', body:form});
+      document.getElementById('output').src = await res.text();
+    }
+  </script>
+</body>
+</html>
